@@ -53,24 +53,26 @@ kubectl apply \
 
 helm upgrade --install crossplane crossplane \
     --repo https://charts.crossplane.io/stable \
+    --timeout 20m \
     --namespace crossplane-system --create-namespace --wait
 
 kubectl apply \
-    --filename providers/provider-kubernetes-incluster.yaml
+    --filename providers/provider-kubernetes-incluster.yaml \
+    --timeout=20m
 
-kubectl apply --filename providers/provider-helm-incluster.yaml
+kubectl apply --filename providers/provider-helm-incluster.yaml --timeout=20m
 
-kubectl apply --filename providers/dot-kubernetes.yaml
+kubectl apply --filename providers/dot-kubernetes.yaml --timeout=20m
 
-kubectl apply --filename providers/dot-sql.yaml
+kubectl apply --filename providers/dot-sql.yaml --timeout=20m
 
-kubectl apply --filename providers/dot-app.yaml
+kubectl apply --filename providers/dot-app.yaml --timeout=20m
 
 gum spin --spinner dot \
     --title "Waiting for Crossplane providers..." -- sleep 60
 
 kubectl wait --for=condition=healthy provider.pkg.crossplane.io \
-    --all --timeout=1800s
+    --all --timeout=20m
 
 echo "## Which Hyperscaler do you want to use?" | gum format
 
