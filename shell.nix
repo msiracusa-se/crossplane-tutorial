@@ -4,6 +4,7 @@
     gh
     kind
     kubectl
+    kubernetes-helm
     yq-go
     jq
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
