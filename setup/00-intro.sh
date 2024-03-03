@@ -72,7 +72,7 @@ gum spin --spinner dot \
     --title "Waiting for Crossplane providers..." -- sleep 60
 
 kubectl wait --for=condition=healthy provider.pkg.crossplane.io \
-    --all --timeout=20m
+    --all --timeout=60m
 
 echo "## Which Hyperscaler do you want to use?" | gum format
 
