@@ -12,7 +12,7 @@ server:
     enabled: true
     ingressClassName: nginx
     hosts:
-      - argocd.192.168.1.104.nip.io
+      - argocd.192.168.2.100.nip.io
       # - argocd.192.168.56.101.nip.io
       # - argocd.127.0.0.1.nip.io
   extraArgs:
