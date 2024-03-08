@@ -16,5 +16,5 @@ nodes:
     hostPort: 443
     protocol: TCP
 networking:
-        apiServerAddress: "192.168.2.100"
+  apiServerAddress: "192.168.2.100"
   apiServerPort: 6443
